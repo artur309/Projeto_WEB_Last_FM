@@ -1,0 +1,4 @@
+Application name	last fm school edition
+API key	97dd7464b0a13ef1d8ffa1562a6546eb
+Shared secret	fe6c2c84705c574f169d7aa6580f4f45
+Registered to	TheBadMushroom
