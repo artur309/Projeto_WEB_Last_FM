@@ -5,7 +5,6 @@ $(document).ready(function () {
     var musicArray = ["Radiohead - Creep", "Epica - The Phantom Angony", "Calvin Harris - Promises", "Kendrick Lamar - ELEMENT.", "Red Hot Chili Peppers - Suck my Kiss", "Grandson - Blood in the water", "Bullet for my valentine - betrayed", "Kaytranada - GO Dj", "999999999 - LOVE 4 RAVE", "Epica - cry for the moon"]
 
     for (var i = 0; i < musicArray.length; i++) {
-
         var artist_track = musicArray[i];
         var artist_trackA = new Array();
         artist_trackA = artist_track.split(' - ');
@@ -36,10 +35,9 @@ $(document).ready(function () {
             console.log(data);
             $('#musica').append('<a href="' + data.track.url + '">' + data.track.artist.name + ' - ' + data.track.name + '</a>');
             $('#musica').append("<br>");
-
+            $('#musica').append('<img src="' + data.track.album.image[2]["#text"] + '">');
+            $('#musica').append("<br>");
 
         })
-
     }
-
 });
