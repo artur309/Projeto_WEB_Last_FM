@@ -1,9 +1,15 @@
+header {
+  padding: 50px 0px 25px 10px;
+  background-color: red;
+  color: blue;
+}
+
 body {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
   }
   
-  a {
-    color: white;
-    text-decoration: none;
+a {
+  color: white;
+  text-decoration: none;
   }
