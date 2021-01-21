@@ -4,3 +4,7 @@
 $(function(){
     $("#headerLink").load("pages/header.html"); 
 });
+
+$(function(){
+    $("#footerLink").load("pages/footer.html"); 
+});

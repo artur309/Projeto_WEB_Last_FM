@@ -1,4 +1,10 @@
-header {
+nav {
+  padding: 10px 0px 10px 3px;
+  background-color: red;
+  color: blue;
+}
+
+footer{
   padding: 50px 0px 25px 10px;
   background-color: red;
   color: blue;
