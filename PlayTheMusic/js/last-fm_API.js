@@ -58,20 +58,23 @@ $(document).ready(function () {
     }
     //slideshow
     var index = 0;
-    var the_image = document.getElementById("main-image");
-    the_image.src = trackImg[0];
+    var theImage = document.getElementById("main-image");
+    theImage.src = trackImg[0];
+    $('#main-text').text(index + trackArtist[index] + " - " + trackName[index]);
 
-    $("#target").click(function () {
-        if ($('#target').attr('name') == "left")
+    $('#target').click(function () {
+        if ($('#target').attr('name') == 'left')
             index--;
 
-        else if ($('#target').attr('name') == "right") {
+        if ($('#target').attr('name') == 'right') {
             index++;
             index %= trackImg.length;
         }
         if (index < 0)
             index = trackImg.length - 1;
 
-        the_image.src = trackImg[index];
+        theImage.src = trackImg[index];
+        $('#main-text').text(index + trackArtist[index] + " - " + trackName[index]);
+
     });
 });
