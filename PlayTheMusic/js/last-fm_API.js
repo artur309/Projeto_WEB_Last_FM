@@ -2,9 +2,28 @@
 
 $(document).ready(function () {
 
-    var musicArray = ["Radiohead - Creep", "Epica - The Phantom Angony", "Calvin Harris - Promises", "Kendrick Lamar - ELEMENT.", "Red Hot Chili Peppers - Suck my Kiss", "Grandson - Blood in the water", "Bullet for my valentine - betrayed", "Kaytranada - GO Dj", "999999999 - LOVE 4 RAVE", "Epica - cry for the moon"]
+    var musicArray =
+        [
+            "Radiohead - The Tourist",
+            "Kendrick Lamar - ELEMENT.",
+            "Red Hot Chili Peppers - Suck my Kiss",
+            "Radiohead - Nude",
+            "Pink Floyd - Money",
+            "Primus - my name is mud",
+            "Radiohead - Creep",
+            "Kendrick Lamar - u",
+            "Radiohead - Pyramid Song",
+            "Radiohead - Burn the Witch"
+        ];
+
+    //ARRAYS para guardar os valores das musicas 
+    var trackImg = [];
+    var trackUrl = [];
+    var trackName = [];
+    var trackArtist = [];
 
     for (var i = 0; i < musicArray.length; i++) {
+        //faz o corte do artista e musica nas strigns do array predefinido das musicas
         var artist_track = musicArray[i];
         var artist_trackA = new Array();
         artist_trackA = artist_track.split(' - ');
@@ -12,8 +31,8 @@ $(document).ready(function () {
         var artist = artist_trackA[0];
         var track = artist_trackA[1];
 
+        //call da API
         $.ajax({
-
             type: 'POST',
             url: 'http://ws.audioscrobbler.com/2.0/',
             data:
@@ -22,22 +41,37 @@ $(document).ready(function () {
                 'artist=' + artist + '&' +
                 'track=' + track + '&' +
                 'format=json',
-            dataType: 'jsonp',
+            dataType: 'json',
+            async: false, // Só continua o código quando o ajax completa, em vez de fazer em background
 
             success: function (data) {
-                //console.log(data);
+                //guardar os valores nos arrays
+                trackUrl.push(data.track.url);
+                trackArtist.push(data.track.artist.name);
+                trackName.push(data.track.name);
+                trackImg.push(data.track.album.image[3]["#text"]);
             },
-            error: function (code, message) {
-                // Handle error here
-            }
-        }).done(function (data) {
-            console.log('Texto do JSON');
-            console.log(data);
-            $('#musica').append('<a href="' + data.track.url + '">' + data.track.artist.name + ' - ' + data.track.name + '</a>');
-            $('#musica').append("<br>");
-            $('#musica').append('<img src="' + data.track.album.image[2]["#text"] + '">');
-            $('#musica').append("<br>");
-
+            error: function (code, message, error) {
+                console.log(JSON.stringify(error));
+            },
         })
     }
+    //slideshow
+    var index = 0;
+    var the_image = document.getElementById("main-image");
+    the_image.src = trackImg[0];
+
+    $("#target").click(function () {
+        if ($('#target').attr('name') == "left")
+            index--;
+
+        else if ($('#target').attr('name') == "right") {
+            index++;
+            index %= trackImg.length;
+        }
+        if (index < 0)
+            index = trackImg.length - 1;
+
+        the_image.src = trackImg[index];
+    });
 });

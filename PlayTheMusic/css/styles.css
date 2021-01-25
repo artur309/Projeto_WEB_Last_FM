@@ -1,18 +1,21 @@
-nav {
-  padding: 10px 0px 10px 3px;
-  background-color: red;
-  color: blue;
+html {
+	height: 100%;
 }
-
-footer{
-  padding: 50px 0px 25px 10px;
-  background-color: red;
-  color: blue;
-}
-
 body {
-	background-color: black;
-	color: white;
+	height: 100%;
+	/* background-color: black;
+	color: white; */
+}
+nav {
+	padding: 10px 0px 10px 3px;
+	background-color: red;
+	color: blue;
+}
+
+footer {
+	padding: 50px 0px 25px 10px;
+	background-color: red;
+	color: blue;
 }
 
 a {
@@ -21,14 +24,19 @@ a {
 }
 
 .slideshow {
-	max-height: 500px;
-	max-width: 700px;
+	/* max-height: 500px;
+	max-width: 700px; */
+	position: relative;
+	display: inline-block;
+}
+.btnStyle {
+	padding-bottom: 15px;
+	display: inline-block;
+	position: relative;
+	height: 45%;
+	width: 100px;
 }
 .holder {
 	height: 500px;
 	width: 700px;
 }
-
-
-/* https://jsfiddle.net/aduLw0u3/4/ */
-/* https://jsfiddle.net/aduLw0u3/4/ */
