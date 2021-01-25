@@ -88,3 +88,23 @@ footer {
 .flagPT {
 	width: 100px;
 }
+.imgTrack{
+	position: relative;
+	text-align: left;
+	width: 30%;
+	height: auto;
+}
+
+.detalhesTrack{
+	position: relative;
+	text-align: center;
+}
+
+.letraTrack{
+
+	position: relative;
+	top: -55px;
+	padding-left: 80%;
+	
+}
+}
