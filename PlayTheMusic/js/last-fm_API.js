@@ -5,6 +5,9 @@ $(document).ready(function () {
         topDefault();
     if (document.title == 'Last-FM PT: Top Musicas PORTUGAL')
         topPortugal();
+    if (document.title == 'Last-FM PT: Detalhes')
+        detalhesMusic();
+
 });
 
 function topDefault() {
@@ -156,4 +159,36 @@ function topPortugal() {
             "Rank: " + index + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
         ));
     });
+}
+
+//Paginda Detalhes Musica
+function detalhesMusic() {
+    $('#artistSpan').html(localStorage.getItem('musicStorage'));
+    $("#imgTrack").attr("src", localStorage.getItem('albumStorage'));
+
+    //faz o corte do artista e musica nas strigns do array predefinido das musicas
+    var artist_track = localStorage.getItem('musicStorage');
+    var artist_trackA = new Array();
+    artist_trackA = artist_track.split(' - ');
+
+    var artist = artist_trackA[0];
+    var track = artist_trackA[1];
+
+
+    // call da API
+    $.ajax({
+        type: 'POST',
+        url: 'http://ws.audioscrobbler.com/2.0/',
+        data:
+            'method=track.getInfo&' +
+            'api_key=97dd7464b0a13ef1d8ffa1562a6546eb&' +
+            'artist=' + artist + '&' +
+            'track=' + track + '&' +
+            'format=json',
+        dataType: 'json',
+        async: false, // Só continua o código quando o ajax completa, em vez de fazer em background
+        success: function (data) {
+            $("#letraWiki").html(data.track.wiki.summary);
+        },
+    })
 }

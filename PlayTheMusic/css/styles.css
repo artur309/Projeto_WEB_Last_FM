@@ -77,6 +77,10 @@ footer {
 	left: 20;
 }
 
+.flagPT {
+	width: 60px;
+}
+
 @media only screen and (max-width: 575px) {
 	.boxes {
 		height: 50px;
@@ -84,27 +88,20 @@ footer {
 		text-align: center;
 	}
 }
-}
-.flagPT {
-	width: 100px;
-}
-.imgTrack{
+.imgTrack {
 	position: relative;
 	text-align: left;
 	width: 30%;
 	height: auto;
 }
 
-.detalhesTrack{
+.detalhesTrack {
 	position: relative;
 	text-align: center;
 }
 
-.letraTrack{
-
+.letraTrack {
 	position: relative;
 	top: -55px;
 	padding-left: 80%;
-	
-}
 }
