@@ -76,15 +76,37 @@ footer {
 	left: 2;
 }
 
+.header .underline {
+	padding: 1px;
+	background-color: greenyellow;
+	transition: 0.3s;
+	position: absolute;
+	right: 130;
+	left: 130;
+	bottom: 0;
+	visibility: hidden;
+}
+
+a:hover .underline {
+	padding: 3px;
+	border-radius: 0px 0px 5px 5px;
+	background-color: yellow;
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	visibility: visible;
+}
+
 .header a:hover {
 	color: white;
 	text-decoration: none;
 	padding: 10px;
-	border-radius: 20px;
+	border-radius: 5px;
 	background-color: greenyellow;
 	position: absolute;
-	right: 20;
-	left: 20;
+	right: 2;
+	left: 2;
 }
 
 .flagPT {
