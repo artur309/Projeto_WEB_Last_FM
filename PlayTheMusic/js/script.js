@@ -12,3 +12,4 @@ $("#musica").click(function () {
     var album = $('#main-image').attr('src');
     localStorage.setItem('musicStorage', musica);
     localStorage.setItem('albumStorage', album);
+});
