@@ -10,6 +10,7 @@ $(document).ready(function () {
 
 });
 
+//Pagina Homepage
 function topDefault() {
     var musicArray =
         [
@@ -94,6 +95,7 @@ function topDefault() {
     });
 }
 
+//Pagina TOP 10 Portugal
 function topPortugal() {
     // ARRAYS para guardar os valores das musicas 
     var musicArray = [];
@@ -130,7 +132,7 @@ function topPortugal() {
     theImage.src = trackImg[0]["#text"];
 
     $('#main-text').text((
-        "Rank: " + index + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
+        "Rank: " + (index + 1) + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
     ));
 
     $('#btnLeft').click(function () {
@@ -142,7 +144,7 @@ function topPortugal() {
         theImage.src = trackImg[index]["#text"];
 
         $('#main-text').text((
-            "Rank: " + index + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
+            "Rank: " + (index + 1) + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
         ));
     });
 
@@ -156,7 +158,7 @@ function topPortugal() {
         theImage.src = trackImg[index]["#text"];
 
         $('#main-text').text((
-            "Rank: " + index + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
+            "Rank: " + (index + 1) + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
         ));
     });
 }

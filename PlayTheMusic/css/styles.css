@@ -3,13 +3,13 @@ html {
 }
 body {
 	height: 100%;
-	/* background-color: black;
-	color: white; */
+	background-color: rgb(210, 233, 233);
+	color: black;
 }
 nav {
 	padding: 10px 0px 10px 3px;
-	background-color: red;
-	color: blue;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 }
 
 footer {
@@ -23,6 +23,7 @@ footer {
 	max-width: 700px; */
 	position: relative;
 	display: inline-block;
+	left: 32%;
 }
 .btnStyle {
 	display: inline-block;
@@ -48,6 +49,15 @@ footer {
 	padding-top: 70px;
 	text-align: center;
 	position: relative;
+}
+
+.material-icons {
+	cursor: pointer;
+	top: 29%;
+	left: 17px;
+	font-size: 66px;
+	position: absolute;
+	user-select: none;
 }
 
 .adapt-input {
