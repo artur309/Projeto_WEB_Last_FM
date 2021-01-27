@@ -108,22 +108,76 @@ a:hover .underline {
 	right: 2;
 	left: 2;
 }
+.detalhesDiv {
+	box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 33%;
+}
+.musicaWiki {
+	float: left;
+	width: 100%;
+	margin-top: 0px;
+	position: absolute;
+
+	top: -55px;
+	padding-left: 80%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 
 .flagPT {
 	width: 60px;
 }
 
-@media only screen and (max-width: 575px) {
-	.boxes {
-		height: 50px;
-		padding-top: 20px;
-		text-align: center;
-	}
+.flex-container {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	/* justify-content: normal;
+	align-items: normal;
+	align-content: normal; */
+}
+.flex-container > div {
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #f1f1f1;
+	border: 2px solid green;
+	width: 150px;
+	margin: 45px;
+	text-align: center;
+	line-height: 20px;
+	display: block;
+	/* flex-grow: 0; */
+	/* flex-shrink: 1; */
+	/* flex-basis: auto; */
+	/* align-self: auto; */
+}
+.flex-container > div:hover {
+	/* background-color: #e9b6b6; */
+	background-color: green;
+	border: 2px solid green;
+	color: white;
+	transition: 0.2s;
+}
+
+.listFav {
+	column-count: 3;
+	column-gap: 40px;
 }
 .imgTrack {
 	position: relative;
 	text-align: left;
-	width: 30%;
+	width: 25%;
+	left: 25px;
 	height: auto;
 }
 
@@ -132,8 +186,10 @@ a:hover .underline {
 	text-align: center;
 }
 
-.letraTrack {
-	position: relative;
-	top: -55px;
-	padding-left: 80%;
+@media only screen and (max-width: 575px) {
+	.boxes {
+		height: 50px;
+		padding-top: 20px;
+		text-align: center;
+	}
 }

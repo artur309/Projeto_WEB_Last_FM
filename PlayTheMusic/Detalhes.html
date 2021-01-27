@@ -14,29 +14,20 @@
 <body>
     <!-- Header -->
     <div id="headerLink"></div>
-    <!-- https://ead.ipleiria.pt/2020-21/pluginfile.php/948457/mod_resource/content/4/2020_21_TeSP_PWebC_PROJETO-v1_4.pdf -->
 
     <h1>Detalhes</h1>
-
-    <div class="detalhesDiv">
-        <!-- Imagem do Album da musica -->
-        <img id="imgTrack" class="imgTrack" src="http://via.placeholder.com/174">
-
-        <!-- Detalhes das musicas-->
-        <div class="detalhesTrack">Detalhes
-            <ul>
-                Artista: <span id="artistSpan"></span>
-            </ul>
-            <ul>
-                Album:
-            </ul>
-            <ul>
-                Data de lançamento:
-            </ul>
+    <div class="row detalhesDiv">
+        <div class="column">
+            <img id="imgTrack" class="imgTrack" src="http://via.placeholder.com/174">
         </div>
 
-        <!-- Letra da musica-->
-        <div id="letraWiki" class="letraTrack">Letra</div>
+        <div class="column detalhesTrack">
+            Artista:<span id="artistSpan"></span>
+        </div>
+
+        <div class="column">
+            <div id="letraWiki" class="detalhesTrack">Letra</div>
+        </div>
     </div>
 
     <!-- Footer -->

@@ -7,6 +7,12 @@ $(document).ready(function () {
         topPortugal();
     if (document.title == 'Last-FM PT: Detalhes')
         detalhesMusic();
+    if (document.title == 'Last-FM PT: Favoritos')
+        favoritosMusic();
+
+    $('#addFav').click(function () {
+        addFav();
+    });
 
 });
 
@@ -60,6 +66,7 @@ function topDefault() {
                 trackArtist.push(data.track.artist.name);
                 trackName.push(data.track.name);
                 trackImg.push(data.track.album.image[3]["#text"]);
+                console.log(data);
             },
             error: function (code, message, error) {
                 console.log(JSON.stringify(error));
@@ -81,6 +88,16 @@ function topDefault() {
 
         theImage.src = trackImg[index];
         $('#main-text').text(trackArtist[index] + " - " + trackName[index]);
+
+        //verifica se ja existe nos favoritos
+        var musica = $('#main-text').text();
+        var favMusics = JSON.parse(localStorage.getItem("favoritos"));
+
+        if (favMusics.includes(musica))
+            $("#addFav").html('Adicionar aos Favs🌟');
+        else
+            $("#addFav").html('Adicionar aos Favs');
+
     });
 
     $('#btnRight').click(function () {
@@ -92,6 +109,17 @@ function topDefault() {
 
         theImage.src = trackImg[index];
         $('#main-text').text(trackArtist[index] + " - " + trackName[index]);
+
+
+        //verifica se ja existe nos favoritos
+        var musica = $('#main-text').text();
+        var favMusics = JSON.parse(localStorage.getItem("favoritos"));
+
+        if (favMusics.includes(musica))
+            $("#addFav").html('Adicionar aos Favs🌟');
+        else
+            $("#addFav").html('Adicionar aos Favs');
+
     });
 }
 
@@ -163,10 +191,12 @@ function topPortugal() {
     });
 }
 
-//Paginda Detalhes Musica
+//Pagina Detalhes Musica
 function detalhesMusic() {
     $('#artistSpan').html(localStorage.getItem('musicStorage'));
     $("#imgTrack").attr("src", localStorage.getItem('albumStorage'));
+
+    console.log("storage music:" + localStorage.getItem('musicStorage'));
 
     //faz o corte do artista e musica nas strigns do array predefinido das musicas
     var artist_track = localStorage.getItem('musicStorage');
@@ -175,7 +205,6 @@ function detalhesMusic() {
 
     var artist = artist_trackA[0];
     var track = artist_trackA[1];
-
 
     // call da API
     $.ajax({
@@ -190,7 +219,43 @@ function detalhesMusic() {
         dataType: 'json',
         async: false, // Só continua o código quando o ajax completa, em vez de fazer em background
         success: function (data) {
+            console.log(data);
             $("#letraWiki").html(data.track.wiki.summary);
         },
     })
+}
+
+//Pagina Favoritos
+function favoritosMusic() {
+
+    var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
+    var c = 0;
+    listaFavoritos.forEach(element => {
+        c++;
+        $('#listFav').append('<a href="">' + c + ' - ' + element + '<br></a>');
+    });
+
+}
+
+//Adiciona Musica favoritos
+var cont = 0;
+function addFav() {
+    var musica = $('#main-text').text();
+    //localStorage.clear();
+
+    //verifica se ja tem ou nao uma lista de favs
+    if (localStorage.getItem("favoritos") === null)
+        var favMusics = [];
+    else
+        var favMusics = JSON.parse(localStorage.getItem("favoritos"));
+
+    //verifica se ja tem ou a musica
+    if (!favMusics.includes(musica)) {
+        favMusics[cont++] = musica;
+        $("#addFav").html('Adicionar aos Favs🌟');
+    }
+    localStorage.setItem("favoritos", JSON.stringify(favMusics));
+
+    var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
+    console.log(listaFavoritos);
 }
