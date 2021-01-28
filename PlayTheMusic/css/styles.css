@@ -12,10 +12,22 @@ nav {
 	color: rgb(0, 0, 0);
 }
 
+.image{
+	height: 200px;
+	width: 200px;
+}
+
+
 footer {
 	padding: 50px 0px 25px 10px;
 	background-color: red;
 	color: blue;
+	position: fixed;
+	overflow: hidden;
+  	bottom: 0;
+  	width: 100%;
+   	color: white;
+  	text-align: center;
 }
 
 .slideshow {
@@ -64,7 +76,7 @@ footer {
 	width: 75%;
 }
 
-.header a {
+.boxes a {
 	color: white;
 	text-decoration: none;
 	padding: 10px;
@@ -98,7 +110,7 @@ a:hover .underline {
 	visibility: visible;
 }
 
-.header a:hover {
+.boxes a:hover {
 	color: white;
 	text-decoration: none;
 	padding: 10px;
