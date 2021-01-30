@@ -17,6 +17,9 @@ nav {
 	width: 200px;
 }
 
+.listaFavLink {
+	cursor: pointer;
+}
 
 footer {
 	padding: 50px 0px 25px 10px;
@@ -70,6 +73,13 @@ footer {
 	font-size: 66px;
 	position: absolute;
 	user-select: none;
+	transition: 0.2s;
+}
+
+.material-icons:hover {
+	top: 28%;
+	font-size: 70px;
+	transition: 0.2s;
 }
 
 .adapt-input {

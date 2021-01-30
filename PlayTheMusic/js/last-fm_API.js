@@ -13,7 +13,6 @@ $(document).ready(function () {
     $('#addFav').click(function () {
         addFav();
     });
-
 });
 
 //Pagina Homepage
@@ -153,7 +152,6 @@ function topPortugal() {
     }
 
     //slideshow 
-
     var index = 0;
     var theImage = document.getElementById("main-image");
 
@@ -174,6 +172,23 @@ function topPortugal() {
         $('#main-text').text((
             "Rank: " + (index + 1) + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
         ));
+
+
+        //verifica se ja existe nos favoritos
+        var musica = $('#main-text').text();
+        var favMusics = JSON.parse(localStorage.getItem("favoritos"));
+
+        //faz o corte do artista e musica nas strigns do array predefinido das musicas
+        var artist_track = musica;
+        var artist_trackA = new Array();
+        artist_trackA = artist_track.split(' | ');
+        musica = artist_trackA[1];
+
+        if (favMusics.includes(musica))
+            $("#addFav").html('Adicionar aos Favs🌟');
+        else
+            $("#addFav").html('Adicionar aos Favs');
+
     });
 
     $('#btnRight').click(function () {
@@ -188,18 +203,36 @@ function topPortugal() {
         $('#main-text').text((
             "Rank: " + (index + 1) + " | " + musicArray[index].artist.name + " - " + musicArray[index].name
         ));
+
+        //verifica se ja existe nos favoritos
+        var musica = $('#main-text').text();
+        var favMusics = JSON.parse(localStorage.getItem("favoritos"));
+
+        //faz o corte do artista e musica nas strigns do array predefinido das musicas
+        var artist_track = musica;
+        var artist_trackA = new Array();
+        artist_trackA = artist_track.split(' | ');
+        musica = artist_trackA[1];
+
+        console.log(musica);
+        if (favMusics.includes(musica))
+            $("#addFav").html('Adicionar aos Favs🌟');
+        else
+            $("#addFav").html('Adicionar aos Favs');
+
     });
 }
 
 //Pagina Detalhes Musica
 function detalhesMusic() {
-    $('#artistSpan').html(localStorage.getItem('musicStorage'));
+    $('#main-text').html(localStorage.getItem('musicStorage'));
     $("#imgTrack").attr("src", localStorage.getItem('albumStorage'));
 
     console.log("storage music:" + localStorage.getItem('musicStorage'));
 
     //faz o corte do artista e musica nas strigns do array predefinido das musicas
     var artist_track = localStorage.getItem('musicStorage');
+    console.log("track aa" + artist_track);
     var artist_trackA = new Array();
     artist_trackA = artist_track.split(' - ');
 
@@ -221,25 +254,28 @@ function detalhesMusic() {
         success: function (data) {
             console.log(data);
             $("#letraWiki").html(data.track.wiki.summary);
+            $("#albumSpan").html(data.track.album.title);
         },
     })
 }
 
 //Pagina Favoritos
 function favoritosMusic() {
-
     var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
-    var c = 0;
+    console.log(listaFavoritos);
     listaFavoritos.forEach(element => {
-        c++;
-        $('#listFav').append('<a href="">' + c + ' - ' + element + '<br></a>');
+        $('#listFav').append('<a id="#musica" class="listaFavLink">' + element + '<br></a>');
+        //href="detalhes.html"
     });
-
+    $('#listFav > a').click(function (e) {
+        var musica = $('#musica').text();
+        alert(musica);
+    });
 }
 
 //Adiciona Musica favoritos
-var cont = 0;
 function addFav() {
+
     var musica = $('#main-text').text();
     //localStorage.clear();
 
@@ -249,6 +285,16 @@ function addFav() {
     else
         var favMusics = JSON.parse(localStorage.getItem("favoritos"));
 
+    var cont = favMusics.length;
+    //faz o corte do artista e musica nas strigns do array predefinido das musicas
+    if (document.title == 'Last-FM PT: Top Musicas PORTUGAL') {
+        var artist_track = musica;
+        var artist_trackA = new Array();
+        artist_trackA = artist_track.split(' | ');
+        musica = artist_trackA[1];
+    }
+
+    console.log(musica);
     //verifica se ja tem ou a musica
     if (!favMusics.includes(musica)) {
         favMusics[cont++] = musica;
