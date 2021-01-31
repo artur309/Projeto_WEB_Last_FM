@@ -12,7 +12,7 @@ $("#musica").click(function (e) {
     var musica = $('#main-text').text();
 
     if (document.title == 'Last-FM PT: Top Musicas PORTUGAL') {
-        //faz o corte do artista e musica nas strigns do array predefinido das musicas
+        //faz o corte do artista e musica nas strings do array predefinido das musicas
         var artist_track = musica;
         var artist_trackA = new Array();
         artist_trackA = artist_track.split(' | ');

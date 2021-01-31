@@ -12,9 +12,15 @@ nav {
 	color: rgb(0, 0, 0);
 }
 
-.image{
+.imageHeader {
 	height: 200px;
 	width: 200px;
+	transition: 0.2s;
+}
+.imageHeader:hover {
+	height: 210px;
+	width: 210px;
+	transition: 0.2s;
 }
 
 .listaFavLink {
@@ -44,6 +50,12 @@ footer {
 .footerfav{
 	background-color: white;
 	color: blue;
+	position: fixed;
+	overflow: hidden;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
 	position: relative;
    	left: 0;
 	bottom: -350px;

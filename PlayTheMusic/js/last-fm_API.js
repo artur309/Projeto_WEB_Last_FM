@@ -15,9 +15,18 @@ $(document).ready(function () {
     $('#addFav').click(function () {
         addFav();
     });
-    $('#searchbar').on('input keypress', function() {
-        searchMusic();
+    $('#searchbar').keypress(function (e) {
+        var key = e.which;
+        if (key == 13)  // the enter key code
+        {
+            $('input[name = butAssignProd]').click();
+
+            return searchMusic();
+        }
     });
+    // $('#searchbar').on('input keypress', function () {
+    //     searchMusic();
+    // });
 
 });
 
@@ -320,7 +329,7 @@ function addFav() {
 
 function searchMusic() {
     let input = document.getElementById('searchbar').value
-    input=input.toLowerCase();
+    input = input.toLowerCase();
 
     var musicName = [];
     var artistName = [];
@@ -345,10 +354,10 @@ function searchMusic() {
     //console.log(musicData);
     musicData = Object.assign({}, musicData);
     //console.log(musicData);
-        for (var i = 0; i < 30; i++) {
-            musicName.push(musicData[0][i].name);
-            artistName.push(musicData[0][i].artist);
-        }
+    for (var i = 0; i < 30; i++) {
+        musicName.push(musicData[0][i].name);
+        artistName.push(musicData[0][i].artist);
+    }
 
     //if (localStorage.getItem('musicStorage') == musica)
     //     localStorage.clear();
@@ -359,6 +368,7 @@ function searchMusic() {
     console.log("artist name: " + localStorage.getItem('artistName'));
     //localStorage.setItem("favoritos", JSON.stringify(favMusics));
     //var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
+    window.location.href = "resultados.html";
 }
 
 function resultsPage() {
