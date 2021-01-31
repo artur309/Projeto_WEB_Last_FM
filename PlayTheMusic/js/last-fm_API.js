@@ -9,10 +9,16 @@ $(document).ready(function () {
         detalhesMusic();
     if (document.title == 'Last-FM PT: Favoritos')
         favoritosMusic();
+    if (document.title == 'Last-FM PT: Resultados')
+        resultsPage();
 
     $('#addFav').click(function () {
         addFav();
     });
+    $('#searchbar').on('input keypress', function() {
+        searchMusic();
+    });
+
 });
 
 //Pagina Homepage
@@ -310,4 +316,61 @@ function addFav() {
     //guarda o array favoritos na memoria local 
     localStorage.setItem("favoritos", JSON.stringify(favMusics));
 
+}
+
+function searchMusic() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+
+    var musicName = [];
+    var artistName = [];
+    var imageRef = [];
+    var musicData = [];
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://ws.audioscrobbler.com/2.0/',
+        data:
+            'method=track.search&' +
+            'api_key=97dd7464b0a13ef1d8ffa1562a6546eb&' +
+            'track=' + input + "&" +
+            'format=json',
+        dataType: 'json',
+        async: false, // Só continua o código quando o ajax completa, em vez de fazer em background
+        success: function (data) {
+            musicData.push(data.results.trackmatches.track);
+        },
+    })
+
+    //console.log(musicData);
+    musicData = Object.assign({}, musicData);
+    //console.log(musicData);
+        for (var i = 0; i < 30; i++) {
+            musicName.push(musicData[0][i].name);
+            artistName.push(musicData[0][i].artist);
+        }
+
+    //if (localStorage.getItem('musicStorage') == musica)
+    //     localStorage.clear();
+
+    localStorage.setItem("musicName", JSON.stringify(musicName));
+    localStorage.setItem("artistName", JSON.stringify(artistName));
+    //localStorage.setItem('albumStorage', album);
+    console.log("artist name: " + localStorage.getItem('artistName'));
+    //localStorage.setItem("favoritos", JSON.stringify(favMusics));
+    //var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
+}
+
+function resultsPage() {
+    var musicName = JSON.parse(localStorage.getItem("musicName"));
+    var musicArtist = JSON.parse(localStorage.getItem("artistName"));
+    var c = 0;
+    musicName.forEach(element => {
+        c++;
+        $('#divNome').append('<a id="musica" href="Detalhes.html" target="_blank">' + element + '</a><br>');
+    });
+    musicArtist.forEach(element => {
+        c++;
+        $('#divArtist').append('<a href="Detalhes.html">' + element + '</a><br>');
+    });
 }

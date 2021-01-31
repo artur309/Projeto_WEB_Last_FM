@@ -82,8 +82,8 @@ footer {
 	transition: 0.2s;
 }
 
-.adapt-input {
-	width: 75%;
+.header {
+	width: 100%;
 }
 
 .boxes a {
@@ -154,6 +154,30 @@ a:hover .underline {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+.search-bar {
+	text-align: left;
+	font-size: 0;
+	white-space: nowrap;
+	margin-left: 10px;
+}
+
+.search-bar input {
+	width: 100%;
+	border-radius: 5px;
+	background-color: #d0d0d085;
+}
+
+.search-bar>div {
+	display: inline-block;
+    text-align: left;
+    vertical-align: top;
+	font-size: 16px;
+}
+
+.search-bar>.input {
+	width: 90%;
 }
 
 .flagPT {
