@@ -21,16 +21,46 @@ nav {
 	cursor: pointer;
 }
 
+.player {
+	width: 1000px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    color: #000;
+}
+
 footer {
 	padding: 50px 0px 25px 10px;
-	background-color: red;
+	background-color: white;
 	color: blue;
-	position: fixed;
-	overflow: hidden;
-  	bottom: 0;
-  	width: 100%;
+	position: relative;
+   	left: 0;
+	bottom: 0;
+	width: 100%;
    	color: white;
-  	text-align: center;
+   	text-align: center;
+}
+
+.footerfav{
+	background-color: white;
+	color: blue;
+	position: relative;
+   	left: 0;
+	bottom: -350px;
+	width: 100%;
+   	color: white;
+   	text-align: center;
+}
+
+.footerplaylist{
+	background-color: white;
+	color: blue;
+	position: relative;
+   	left: 0;
+	bottom: -400px;
+	width: 100%;
+   	color: white;
+   	text-align: center;
 }
 
 .slideshow {
@@ -46,6 +76,7 @@ footer {
 	height: 45%;
 	width: 100px;
 }
+
 .slideData {
 	display: inline-block;
 }
@@ -91,7 +122,7 @@ footer {
 	text-decoration: none;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: green;
+	background-color: black;
 	transition: 0.3s;
 	position: absolute;
 	right: 2;
@@ -100,7 +131,7 @@ footer {
 
 .header .underline {
 	padding: 1px;
-	background-color: greenyellow;
+	background-color: rgb(210, 221, 233);
 	transition: 0.3s;
 	position: absolute;
 	right: 130;
@@ -112,7 +143,7 @@ footer {
 a:hover .underline {
 	padding: 3px;
 	border-radius: 0px 0px 5px 5px;
-	background-color: yellow;
+	background-color: white;
 	position: absolute;
 	right: 0;
 	left: 0;
@@ -125,7 +156,7 @@ a:hover .underline {
 	text-decoration: none;
 	padding: 10px;
 	border-radius: 5px;
-	background-color: greenyellow;
+	background-color: rgb(136, 199, 199);
 	position: absolute;
 	right: 2;
 	left: 2;
@@ -196,7 +227,7 @@ a:hover .underline {
 	border-radius: 5px;
 	cursor: pointer;
 	background-color: #f1f1f1;
-	border: 2px solid green;
+	border: 2px solid black;
 	width: 150px;
 	margin: 45px;
 	text-align: center;
@@ -209,8 +240,8 @@ a:hover .underline {
 }
 .flex-container > div:hover {
 	/* background-color: #e9b6b6; */
-	background-color: green;
-	border: 2px solid green;
+	background-color: rgb(136, 199, 199);
+	border: 2px solid rgb(136, 199, 199);
 	color: white;
 	transition: 0.2s;
 }
