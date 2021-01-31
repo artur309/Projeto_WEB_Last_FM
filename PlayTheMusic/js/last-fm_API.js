@@ -273,7 +273,7 @@ function favoritosMusic() {
     });
 }
 
-//Adiciona Musica favoritos
+//Adiciona (remove tambem) Musica favoritos
 function addFav() {
 
     var musica = $('#main-text').text();
@@ -295,13 +295,19 @@ function addFav() {
     }
 
     console.log(musica);
-    //verifica se ja tem ou a musica
+
+    //verifica se ja tem ou a musica | ADICIONA -|- REMOVE
+
     if (!favMusics.includes(musica)) {
         favMusics[cont++] = musica;
         $("#addFav").html('Adicionar aos Favs🌟');
     }
+    else {
+        favMusics.splice($.inArray(musica, favMusics), 1);
+        $("#addFav").html('Adicionar aos Favs');
+    }
+
+    //guarda o array favoritos na memoria local 
     localStorage.setItem("favoritos", JSON.stringify(favMusics));
 
-    var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
-    console.log(listaFavoritos);
 }
