@@ -1,1 +1,10 @@
 #info
+
+Numero grupo: 203
+2201090 - André Miguel Paiva Prata 
+2201115 - Artur Sérgio Cabrita Quaresma
+2201091 - Bruno Miguel Gaspar Lopes
+
+Turno - TP 2 
+Regime de Ensino - Diurno
+Link do Github - https://github.com/artur309/Projeto_WEB_Last_FM

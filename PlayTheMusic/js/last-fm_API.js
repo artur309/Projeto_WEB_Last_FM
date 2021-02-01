@@ -1,6 +1,12 @@
 "use strict";
 
 $(document).ready(function () {
+
+    //scripts to include HTML pages
+    //Include Header link
+    $("#headerLink").load("pages/header.html");
+    $("#footerLink").load("pages/footer.html");
+
     if (document.title == 'Last-FM PT: Homepage')
         topDefault();
     if (document.title == 'Last-FM PT: Top Musicas PORTUGAL')
@@ -20,14 +26,28 @@ $(document).ready(function () {
         if (key == 13)  // the enter key code
         {
             $('input[name = butAssignProd]').click();
-
             return searchMusic();
         }
     });
-    // $('#searchbar').on('input keypress', function () {
-    //     searchMusic();
-    // });
+});
 
+//Conteudo da musica a ser guardado
+$("#musica").click(function (e) {
+    // e.preventDefault();
+    var musica = $('#main-text').text();
+
+    if (document.title == 'Last-FM PT: Top Musicas PORTUGAL') {
+        //faz o corte do artista e musica nas strings do array predefinido das musicas
+        var artist_track = musica;
+        var artist_trackA = new Array();
+        artist_trackA = artist_track.split(' | ');
+        musica = artist_trackA[1];
+    }
+
+    var album = $('#main-image').attr('src');
+    localStorage.setItem('musicStorage', musica);
+    localStorage.setItem('albumStorage', album);
+    console.log("track name: " + localStorage.getItem('musicStorage'));
 });
 
 //Pagina Homepage
@@ -333,7 +353,6 @@ function searchMusic() {
 
     var musicName = [];
     var artistName = [];
-    var imageRef = [];
     var musicData = [];
 
     $.ajax({
@@ -351,23 +370,15 @@ function searchMusic() {
         },
     })
 
-    //console.log(musicData);
     musicData = Object.assign({}, musicData);
-    //console.log(musicData);
     for (var i = 0; i < 30; i++) {
         musicName.push(musicData[0][i].name);
         artistName.push(musicData[0][i].artist);
     }
 
-    //if (localStorage.getItem('musicStorage') == musica)
-    //     localStorage.clear();
-
     localStorage.setItem("musicName", JSON.stringify(musicName));
     localStorage.setItem("artistName", JSON.stringify(artistName));
-    //localStorage.setItem('albumStorage', album);
     console.log("artist name: " + localStorage.getItem('artistName'));
-    //localStorage.setItem("favoritos", JSON.stringify(favMusics));
-    //var listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
     window.location.href = "resultados.html";
 }
 
