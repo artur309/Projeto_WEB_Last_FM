@@ -12,6 +12,18 @@ nav {
 	color: rgb(0, 0, 0);
 }
 
+footer {
+	padding: 50px 0px 25px 10px;
+	background-color: white;
+	color: blue;
+	position: relative;
+   	left: 0;
+	bottom: 0;
+	width: 100%;
+   	color: white;
+   	text-align: center;
+}
+
 .imageHeader {
 	height: 200px;
 	width: 200px;
@@ -33,18 +45,6 @@ nav {
     border-radius: 5px;
     background-color: white;
     color: #000;
-}
-
-footer {
-	padding: 50px 0px 25px 10px;
-	background-color: white;
-	color: blue;
-	position: relative;
-   	left: 0;
-	bottom: 0;
-	width: 100%;
-   	color: white;
-   	text-align: center;
 }
 
 .footerfav{
@@ -76,8 +76,6 @@ footer {
 }
 
 .slideshow {
-	/* max-height: 500px;
-	max-width: 700px; */
 	position: relative;
 	display: inline-block;
 	left: 32%;
@@ -231,9 +229,6 @@ a:hover .underline {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
-	/* justify-content: normal;
-	align-items: normal;
-	align-content: normal; */
 }
 .flex-container > div {
 	border-radius: 5px;
@@ -245,13 +240,8 @@ a:hover .underline {
 	text-align: center;
 	line-height: 20px;
 	display: block;
-	/* flex-grow: 0; */
-	/* flex-shrink: 1; */
-	/* flex-basis: auto; */
-	/* align-self: auto; */
 }
 .flex-container > div:hover {
-	/* background-color: #e9b6b6; */
 	background-color: rgb(136, 199, 199);
 	border: 2px solid rgb(136, 199, 199);
 	color: white;
